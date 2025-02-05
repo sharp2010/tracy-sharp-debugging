@@ -37,13 +37,16 @@ function checkGuess() {
 
     submitButton.disabled = true;
     guessInput.disabled = true;
-  }
-
-  if (guess !== targetNumber) {
+  } else {
+    // seemed to be too many "if's"
     if (guess < targetNumber) {
       tooLowMessage.style.display = '';
+      //this will hide too high
+      tooHighMessage.style.display = 'none';
     } else {
-      tooLowMessage.style.display = '';
+      tooHighMessage.style.display = '';
+      // this will hide too low 
+      tooLowMessage.style.display = 'none';
     }
 
     const remainingAttempts = maxNumberOfAttempts - attempts;
@@ -51,8 +54,8 @@ function checkGuess() {
     numberOfGuessesMessage.style.display = '';
     numberOfGuessesMessage.innerHTML = `You guessed ${guess}. <br> ${remainingAttempts} guesses remaining`;
   }
-
-  if (attempts ==== maxNumberOfAttempts) {
+// removed extra =
+  if (attempts === maxNumberOfAttempts) {
     submitButton.disabled = true;
     guessInput.disabled = true;
   }
@@ -64,20 +67,19 @@ function checkGuess() {
 
 function hideAllMessages() {
   for (let elementIndex = 0; elementIndex <= messages.length; elementIndex++) {
-    messages[elementIndex].style.display = 'none';
+   // messages[elementIndex].style.display = 'none';
   }
 }
-
-funtion setup() {
+// fixed spelling error
+function setup() {
   // Get random number
   targetNumber = getRandomNumber(1, 100);
   console.log(`target number: ${targetNumber}`);
 
-  // Reset number of attempts
-  maxNumberOfAttempts = 0;
+  // maxNumberOfAttempts = 0; is not needed
 
   // Enable the input and submit button
-  submitButton.disabeld = false;
+  submitButton.disabled = false;
   guessInput.disabled = false;
 
   hideAllMessages();
