@@ -8,7 +8,7 @@ const maxGuessesMessage = document.getElementById('max-guesses');
 const numberOfGuessesMessage = document.getElementById('number-of-guesses');
 const correctMessage = document.getElementById('correct');
 
-let targetNumber;
+let targetNumber = Math.floor(Math.random() * 100) + 1;;
 let attempts = 0;
 const maxNumberOfAttempts = 5;
 
@@ -66,8 +66,8 @@ function checkGuess() {
 }
 
 function hideAllMessages() {
-  for (let elementIndex = 0; elementIndex <= messages.length; elementIndex++) {
-   // messages[elementIndex].style.display = 'none';
+  for (let elementIndex = 0; elementIndex < messages.length; elementIndex++) {
+    messages[elementIndex].style.display = 'none';
   }
 }
 // fixed spelling error
