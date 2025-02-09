@@ -77,7 +77,8 @@ function setup() {
   targetNumber = getRandomNumber(1, 100);
   console.log(`target number: ${targetNumber}`);
 
-  // maxNumberOfAttempts = 0; is not needed
+// reset attempts
+  attempts = 0;
 
   // Enable the input and submit button
   submitButton.disabled = false;
