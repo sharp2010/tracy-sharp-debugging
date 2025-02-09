@@ -67,10 +67,11 @@ function checkGuess() {
 
 function hideAllMessages() {
   for (let elementIndex = 0; elementIndex < messages.length; elementIndex++) {
+    // is uncommententd, will execute and hide each message
     messages[elementIndex].style.display = 'none';
   }
 }
-// fixed spelling error
+
 function setup() {
   // Get random number
   targetNumber = getRandomNumber(1, 100);
