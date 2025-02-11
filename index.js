@@ -54,7 +54,7 @@ function checkGuess() {
     numberOfGuessesMessage.style.display = '';
     numberOfGuessesMessage.innerHTML = `You guessed ${guess}. <br> ${remainingAttempts} guesses remaining`;
   }
-// removed extra =
+  // removed extra =
   if (attempts === maxNumberOfAttempts) {
     submitButton.disabled = true;
     guessInput.disabled = true;
@@ -77,7 +77,7 @@ function setup() {
   targetNumber = getRandomNumber(1, 100);
   console.log(`target number: ${targetNumber}`);
 
-// reset attempts
+  // reset attempts
   attempts = 0;
 
   // Enable the input and submit button

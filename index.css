@@ -5,7 +5,9 @@ main {
   align-items: center;
   margin: auto;
 }
-
+body {
+  background-color: aqua;
+}
 #guess {
   width: 5em;
 }
