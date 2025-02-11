@@ -25,6 +25,7 @@ function getRandomNumber(min, max) {
 function checkGuess() {
   // Get value from guess input element
   const guess = parseInt(guessInput.value, 10);
+  console.log(`User guessed:  ${guess}`);
   attempts = attempts + 1;
 
   hideAllMessages();
@@ -48,12 +49,16 @@ function checkGuess() {
       // this will hide too low 
       tooLowMessage.style.display = 'none';
     }
+  }
+  const remainingAttempts = maxNumberOfAttempts - attempts;
 
-    const remainingAttempts = maxNumberOfAttempts - attempts;
-
-    numberOfGuessesMessage.style.display = '';
+  numberOfGuessesMessage.style.display = '';
+  if (remainingAttempts === 1) {
+    numberOfGuessesMessage.innerHTML = `You guessed ${guess}. <br> ${remainingAttempts} guess remaining`;
+  } else {
     numberOfGuessesMessage.innerHTML = `You guessed ${guess}. <br> ${remainingAttempts} guesses remaining`;
   }
+
   // removed extra =
   if (attempts === maxNumberOfAttempts) {
     submitButton.disabled = true;
@@ -73,12 +78,12 @@ function hideAllMessages() {
 }
 
 function setup() {
+  // reset attempts
+  attempts = 0;
+
   // Get random number
   targetNumber = getRandomNumber(1, 100);
   console.log(`target number: ${targetNumber}`);
-
-  // reset attempts
-  attempts = 0;
 
   // Enable the input and submit button
   submitButton.disabled = false;
